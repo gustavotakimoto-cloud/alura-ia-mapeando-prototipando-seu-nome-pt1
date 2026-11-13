@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Minha Rotina Semanal 3D</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- Objetos 3D voadores roxos no fundo -->
+<div class="shape sphere shape1"></div>
+<div class="shape cube shape2"></div>
+<div class="shape pyramid shape3"></div>
+<div class="shape sphere shape4"></div>
+<div class="shape cube shape5"></div>
+
+<header>
+<h1>Minha Rotina Semanal</h1>
+<p>Clique nos dias para ver os detalhes</p>
+</header>
+
+<main class="grid-container">
+<!-- Cards de Segunda a Domingo -->
+<div class="card" onclick="openModal('modal-segunda')">
+<div class="card-icon">📅</div>
+<h2>Segunda-feira</h2>
+<p>Escola, limpeza da casa e PC.</p>
+</div>
+
+<div class="card" onclick="openModal('modal-terca')">
+<div class="card-icon">🏐</div>
+<h2>Terça-feira</h2>
+<p>Escola, limpeza, treino e PC.</p>
+</div>
+
+<div class="card" onclick="openModal('modal-quarta')">
+<div class="card-icon">📖</div>
+<h2>Quarta-feira</h2>
+<p>Escola, leitura e PC.</p>
+</div>
+
+<div class="card" onclick="openModal('modal-quinta')">
+<div class="card-icon">🏐</div>
+<h2>Quinta-feira</h2>
+<p>Escola, treino de vôlei e PC.</p>
+</div>
+
+<div class="card" onclick="openModal('modal-sexta')">
+<div class="card-icon">🍕</div>
+<h2>Sexta-feira</h2>
+<p>Escola, sair/lazer e PC.</p>
+</div>
+
+<div class="card" onclick="openModal('modal-sabado')">
+<div class="card-icon">🏠</div>
+<h2>Sábado</h2>
+<p>Ficar em casa e PC.</p>
+</div>
+
+<div class="card" onclick="openModal('modal-domingo')">
+<div class="card-icon">🎮</div>
+<h2>Domingo</h2>
+<p>Ficar em casa e relaxar no PC.</p>
+</div>
+</main>
+
+<!-- Modais com os detalhes da rotina -->
+<div id="modal-segunda" class="modal">
+<div class="modal-content">
+<span class="close-btn" onclick="closeModal('modal-segunda')">&times;</span>
+<h2>Rotina de Segunda</h2>
+<ul>
+<li>Acordar e escovar os dentes</li>
+<li>Ir para a escola</li>
+<li>Chegar em casa e limpar tudo</li>
+<li>Jogar no PC</li>
+</ul>
+</div>
+</div>
+
+<div id="modal-terca" class="modal">
+<div class="modal-content">
+<span class="close-btn" onclick="closeModal('modal-terca')">&times;</span>
+<h2>Rotina de Terça</h2>
+<ul>
+<li>Acordar e escovar os dentes</li>
+<li>Ir para a escola</li>
+<li>Chegar em casa e limpar tudo</li>
+<li>Treino de Vôlei (das 7:30 às 10:00)</li>
+<li>Jogar no PC</li>
+</ul>
+</div>
+</div>
+
+<div id="modal-quarta" class="modal">
+<div class="modal-content">
+<span class="close-btn" onclick="closeModal('modal-quarta')">&times;</span>
+<h2>Rotina de Quarta</h2>
+<ul>
+<li>Acordar e escovar os dentes</li>
+<li>Ir para a escola</li>
+<li>Ler livros em casa</li>
+<li>Jogar no PC</li>
+</ul>
+</div>
+</div>
+
+<div id="modal-quinta" class="modal">
+<div class="modal-content">
+<span class="close-btn" onclick="closeModal('modal-quinta')">&times;</span>
+<h2>Rotina de Quinta</h2>
+<ul>
+<li>Acordar e escovar os dentes</li>
+<li>Ir para a escola</li>
+<li>Treino de Vôlei</li>
+<li>Jogar no PC</li>
+</ul>
+</div>
+</div>
+
+<div id="modal-sexta" class="modal">
+<div class="modal-content">
+<span class="close-btn" onclick="closeModal('modal-sexta')">&times;</span>
+<h2>Rotina de Sexta</h2>
+<ul>
+<li>Acordar e escovar os dentes</li>
+<li>Ir para a escola</li>
+<li>Sair para comer ou lazer</li>
+<li>Jogar no PC</li>
+</ul>
+</div>
+</div>
+
+<div id="modal-sabado" class="modal">
+<div class="modal-content">
+<span class="close-btn" onclick="closeModal('modal-sabado')">&times;</span>
+<h2>Rotina de Sábado</h2>
+<ul>
+<li>Dia livre!</li>
+<li>Ficar em casa relaxando</li>
+<li>Jogar no PC (o dia todo se quiser!)</li>
+</ul>
+</div>
+</div>
+
+<div id="modal-domingo" class="modal">
+<div class="modal-content">
+<span class="close-btn" onclick="closeModal('modal-domingo')">&times;</span>
+<h2>Rotina de Domingo</h2>
+<ul>
+<li>Dia de descanso!</li>
+<li>Ficar em casa</li>
+<li>Jogar no PC e se preparar para a semana</li>
+</ul>
+</div>
+</div>
+
+<!-- JAVASCRIPT -->
+<script>
+// Função para abrir o modal
+function openModal(id) {
+const modal = document.getElementById(id);
+modal.style.display = 'flex';
+setTimeout(() => {
+modal.classList.add('show');
+}, 10);
+}
+
+// Função para fechar o modal
+function closeModal(id) {
+const modal = document.getElementById(id);
+modal.classList.remove('show');
+setTimeout(() => {
+modal.style.display = 'none';
+}, 300);
+}
+
+// Fechar modal ao clicar fora da caixa de conteúdo
+window.onclick = function(event) {
+if (event.target.classList.contains('modal')) {
+event.target.classList.remove('show');
+setTimeout(() => {
+event.target.style.display = 'none';
+}, 300);
+}
+}
+</script>
+</body>
+</html>
